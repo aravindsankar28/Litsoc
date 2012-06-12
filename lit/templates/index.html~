@@ -1,0 +1,148 @@
+<html>
+<center>
+<h1>Litsoc Portal</h1>
+</center>
+<title>Litsoc Web-Portal</title>
+<head>
+
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/files/style.css" />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
+<script type='text/javascript' src='{{STATIC_YRL}}/js/verticalscroll.js'></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}/js/jquery.transform-0.9.3.min_.js"></script>
+        <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}/js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}/js/jquery.RotateImageMenu.js"></script>
+<style type="text/css">
+#content{
+position: absolute;
+left: 110px;
+width: 1110px;
+height: 700px;
+color: #000099;
+font-size: 20px;
+top:250px; 
+overflow: auto;
+background-image: url('{{ STATIC_URL }}/css/images/background.gif');
+background-repeat: repeat-x;
+}
+.menu{
+	padding:0px;
+	font: 100% "Comic Sans MS","Arial","Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	text-transform: UpperCase;
+	width:85%;
+	}
+.menu ul{
+	border-radius: 10px;
+	background:#333333;
+	height:35px;
+	margin:0;
+	}
+	.menu li{
+		float:left;
+		padding:0px;
+		}
+	.menu li a{
+		background:#333333;
+		color:#cccccc;
+		display:block;
+		font-weight:bold;
+		line-height:35px;
+		margin:0px;
+		padding:0px 20px;
+		text-align:center;
+		text-decoration:none;
+		}
+		.menu li a:hover, .menu ul li:hover a{
+			background: #2580a2 ;
+			color:#FFFFFF;
+			text-decoration:none;
+			}
+	.menu li ul{
+		background:#333333;
+		display:none;
+		height:auto;
+		padding:0px;
+		margin:0px;
+		border:0px;
+		position:absolute;
+		width:225px;
+		z-index:200;
+		/*top:1em;
+		/*left:0;*/
+		}
+	.menu li:hover ul{
+		display:block;
+		}
+	.menu li li {
+		display:block;
+		float:none;
+		margin:0px;
+		padding:0px;
+		width:225px;
+		}
+	.menu li:hover li a{
+		background:none;	
+		}
+	.menu li ul a{
+		display:block;
+		height:35px;
+		font-size:14px;
+		margin:0px;
+		padding:0px 10px 0px 15px;
+		text-align:left;
+		}
+		.menu li ul a:hover, .menu li ul li:hover a{
+			background:#2580a2;
+			color:#ffffff;
+			text-decoration:none;
+			}
+	
+		
+</style>
+</head>
+
+<body style ="color:#000099;">
+<center><div class="menu">
+		<ul>
+			{% if user.username == "" %}
+			<li><a href="/homepage/" >Home</a></li>
+			{% else %}
+			<li><a href="/corepage/" >Home</a></li>
+			{% endif %}
+			<li><a href="" >Calender</a></li>
+			<li><a href="/pointstally/" >Points Tally</a></li>
+			<li><a href="/downloads/" >Downloads</a></li>
+			<li><a href="/gallery/" >Gallery</a></li></li>
+			<li><a href="/hostels/" >Hostels</a></li>
+			<li><a href="/calender/" id="current">Clubs</a>
+				<ul>
+					{% for vertical in verticals %} 
+					<li><a href="/verticals/{{vertical.vert_id}}">{{vertical.name}}</a></li>
+					{% endfor %}
+			   </ul>
+		  </li>
+			{% if user.username == "" %}
+			<li><a href="/login/">Login</a></li>
+			{% else %}
+			<li><a href="#" id="current">{{user.username}}</a>
+				<ul>
+					<li><a href="/logout/">Logout</a></li>
+					<li><a href="/changepw/">Edit Details</a></li>
+			   </ul>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+		<div id="logo" class="left" style="">
+	<a href="" style="position:absolute; left:110px; "><img title="Litsoc Portal logo | Designed by" src="" width="1130px" height="150px" /></a>
+</div>
+	</center>
+<div id="content">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

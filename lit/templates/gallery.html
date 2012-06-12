@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block content %}
+<center><b><font color="#000099"; size="6px">Gallery Images</font> </b><br></center>
+{% if n == 0 %}
+<br>Photos will be up soon
+{% endif %}
+{% for fq in files %}
+<a href ={{MEDIA_URL}}/gallery/{{fq}}><img src ={{MEDIA_URL}}/gallery/{{fq}} style = "width:120px; height:80px; padding:20px;" /></a>
+{% endfor %}
+{% endblock %}
+

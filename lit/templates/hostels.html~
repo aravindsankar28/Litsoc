@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% block content %}
+<center>
+<table bgcolor="#aaaeaa" border="1" width="50%" cellspacing="1" cellpadding="2">
+<th>Hostel</th>
+<th>Points</th>
+{% for h in hostels %}
+<tr><td bgcolor="#FFF8C6"><a href="/hostel/{{h.hostel}}/" >{{h.hostel}}</a></td>
+<td bgcolor="#FFF8C6">{{h.total}}</td>
+</tr>
+{% endfor %}
+</center>
+{% endblock %}

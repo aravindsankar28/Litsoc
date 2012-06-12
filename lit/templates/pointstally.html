@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+{% block content %}
+</br>
+<center>
+<h3>Litsoc Events</h3>
+<br/>
+<table bgcolor="#aaaeaa" border="1" width="80%" cellspacing="1" cellpadding="2">
+<tr><th></th>
+<th><a href="/hostel/Alakananda">AL</a></th>
+<th><a href="/hostel/Brahmaputra">BR</a></th>
+<th><a href="/hostel/Cauvery">CA</a></th>
+<th><a href="/hostel/Ganga">GN</a></th>
+<th><a href="/hostel/Godavari">GD</a></th>
+<th><a href="/hostel/Jamuna">JM</a></th>
+<th><a href="/hostel/Krishna">KR</a></th>
+<th><a href="/hostel/Mahanadhi">MH</a></th>
+<th><a href="/hostel/Mandakini">MN</a></th>
+<th><a href="/hostel/Naramada">NM</a></th>
+<th><a href="/hostel/Pampa">PM</a></th>
+<th><a href="/hostel/Saraswathi">SR</a></th>
+<th><a href="/hostel/Sarayu">SA</a></th>
+<th><a href="/hostel/Sharavati">SH</a></th>
+<th><a href="/hostel/Sindhu">SN</a></th>
+<th><a href="/hostel/Tamiraparani">TM</a></th>
+<th><a href="/hostel/Tapti">TP</a></th>
+</tr>
+{% for event in events %}
+<tr><td width="50%" bgcolor="#aaaeaa" ><a href="/events/{{event.event_id}}">{{event.name}}</a></td>
+<td bgcolor="#FFF8C6">{{event.Alakananda}}</td>
+<td bgcolor="#FFF8C6">{{event.Brahmaputra}}</td>
+<td bgcolor="#FFF8C6">{{event.Cauvery}}</td>
+<td bgcolor="#FFF8C6">{{event.Ganga}}</td>
+<td bgcolor="#FFF8C6">{{event.Godavari}}</td>
+<td bgcolor="#FFF8C6">{{event.Jamuna}}</td>
+<td bgcolor="#FFF8C6">{{event.Krishna}}</td>
+<td bgcolor="#FFF8C6">{{event.Mahanadhi}}</td>
+<td bgcolor="#FFF8C6">{{event.Mandakini}}</td>
+<td bgcolor="#FFF8C6">{{event.Narmada}}</td>
+<td bgcolor="#FFF8C6">{{event.Pampa}}</td>
+<td bgcolor="#FFF8C6">{{event.Saraswathi}}</td>
+<td bgcolor="#FFF8C6">{{event.Sarayu}}</td>
+<td bgcolor="#FFF8C6">{{event.Sharavati}}</td>
+<td bgcolor="#FFF8C6">{{event.Sindhu}}</td>
+<td bgcolor="#FFF8C6">{{event.Tamiraparani}}</td>
+<td bgcolor="#FFF8C6">{{event.Tapti}}</td>
+</tr>
+{% endfor %}
+</table>
+</center>
+{% endblock %}

@@ -1,0 +1,26 @@
+<html>
+<center><font face="arial" size="4"><b>RESULT - {{e.name}}</b></font></center>
+     <form action="" method='POST'>
+    </br></br>
+    <script type="text/javascript">
+    var i=1,j=0,z=0;
+    for (i=1;i<9;i++)
+    {
+        document.write("<b><u>Position</u></b> : " + i + "</br>");
+        document.write("<table>");
+        for(j=0;j<6;j++)
+        {
+            
+            document.write("<tr><td>Name : </td><td><input type='text' name='name[" + z + "]' ></td><td><pre> - </pre></td><td>Hostel : </td><td><select name='sel["+ z +"]'><option name='Alakananda'>Alakananda</option><option name='Brahmaputra'>Brahmaputra</option><option name='Cauvery'>Cauvery</option><option name='Ganga'>Ganga</option><option name='Godavari'>Godavari</option><option name='Jamuna'>Jamuna</option><option name='Krishna'>Krishna</option><option name='Mahanadhi'>Mahanadhi</option><option name='Mandakini'>Mandakini</option><option name='Narmada'>Narmada</option><option name='Pampa'>Pampa</option><option name='Saraswathi'>Saraswathi</option><option name='Sarayu'>Sarayu</option><option name='Sharavati'>Sharavati</option><option name='Sindhu'>Sindhu</option><option name='Tamiraparani'>Tamiraparani</option><option name='Tapti'>Tapti</option></select> </td><td><pre> - </pre></td><td><input type='text' name='points[" + z + "]' size='3'></td><td>pts</td></tr>");
+            z++;
+            
+        }
+        document.write("</table>");
+        document.write("</br>");
+    }
+    </script>
+        
+        <center><input type ='submit' value="Submit" /></center>
+
+    </form>
+</html>

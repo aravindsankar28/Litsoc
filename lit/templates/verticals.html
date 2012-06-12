@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+<title>Verticals Page</title>
+{% block content %} 
+<h2><center>{{v.name}} </center></h2>
+<font size="3">
+{% if flag == 1 %} <center><a href="/editvertical/{{v.vert_id}}" >Edit vertical details</a></center>{% endif %}
+</br>
+<b><u>Description</u></b> : <br><pre>          {{v.description}}</pre>
+<b><u>Events assosciated</u></b> :
+<ul>
+{% for event in r %}
+<li><a href="/events/{{event.event_id}}">{{event.name}}</a><span style="padding-left:30px"></span>
+{% if flag == 1 %}
+<a href="/editevent/{{event.event_id}}">Edit event</a><span style="padding-left:30px"></span>
+<a href="/results/{{event.event_id}}">Result</a>
+{% endif %}
+</br></br>
+{% endfor %}</li>
+</ul>
+{% if approve == 1 %}
+{% for events in t %}
+<a href="/approve/{{events.event_id}}" >View changes by coord for event {{events.name}}</a></br>
+{% endfor %}
+</br>
+{% endif %}
+
+
+<b><u>Super Coords</u></b></br></br>
+{% for scoord in scoords %}
+<span style="padding-left:20px">{{scoord.first_name}}</span></br>
+<span style="padding-left:20px">{{scoord.get_profile.rollno}}</span></br>
+<span style="padding-left:20px">{{scoord.email}}</b></span></br>
+</br>
+{% endfor %}
+</font>
+{% endblock %}

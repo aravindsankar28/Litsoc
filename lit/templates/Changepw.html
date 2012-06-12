@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% block content %}
+<style>
+.errorMsg
+{
+		color:red;
+		display:none;
+		font-weight:bold;
+}
+</style>
+<script>
+function validate()
+{
+var error = false;
+var oldpw = document.getElementById("oldpw").value;
+var newpw = document.getElementById("newpw").value;
+var confirmpw = document.getElementById("confirmpw").value;
+if(oldpw == "" || newpw =="" || confirmpw =="" || username == "" || rollno == "" || email == "" || first_name == "")
+{
+document.getElementById("Error").style.display = 'block'; error  = false; }
+else if(newpw != confirmpw)
+{ document.getElementById("confirm_pw").style.display = 'block'; error = false; document.getElementById("Error").style.display = 'none'}
+
+else if(newpw.length <6)
+{ 
+document.getElementById("length").style.display = 'block'; error = false; document.getElementById("Error").style.display = 'none';document.getElementById("confirm_pw").style.display ='none'  }
+else error = true;
+return error;
+}
+</script>
+</head>
+<center>
+<h2>Change Details</h2>
+<form action = "" method="POST" onsubmit="return validate()">
+	{% csrf_token %}
+<table>
+<tr><td>First name :</td><td><input type = "text" id = "first_name" name ="first_name" value={{u.first_name}} /></td></tr>
+<tr><td>Last name :</td><td><input type = "text" id = "last_name" name ="last_name" value={{u.last_name}} /></td></tr>
+<tr><td>Username :</td><td><input type = "text" id = "username" name ="username" value={{u.username}} /></td></tr>
+<tr><td>Roll no :</td><td><input type = "text" id = "rollno" name ="rollno" value={{us.rollno}}></td></tr>
+<tr><td>Email :</td><td><input type = "text" id = "email" name ="email" value={{u.email}} ></td></tr>
+<tr><td>Current Password :</td><td><input type = "password" id = "oldpw" name ="oldpw" /></td></tr>
+<tr><td>New Password :</td><td><input type = "password" id = "newpw" name ="newpw" /></td></tr>
+<tr><td>Confirm New Password :</td><td><input type = "password" id = "confirmpw" name ="confirmpw" /></td></tr> 
+<tr><td></td><td><span id = "Error" class = "errorMsg">Enter all data</span><span id = "confirm_pw" class = "errorMsg" >Passwords not matching </span></td></tr>
+</table>
+<input type = "submit" value = "Submit" /><br/>
+<b><span id = "confirm_pw" style = "color:red; display:none; ">Passwords not matching </span></b>
+{% if flop == 0 %}
+<span style = "color:red ;"><b>Old password Incorrect</b></span>
+{% endif %} 
+<b><span id = "length" style = "color:red; display:none; ">Password length cannot be less than 6 characters</span></b>
+</form>
+</center>
+{% endblock %}
+

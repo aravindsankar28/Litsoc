@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+</script>
+
+		<script type="text/javascript">
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade',
+		speed:    300, 
+    timeout:  1200  // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+	
+
+	$("#rm_play").click();
+});
+</script>
+	<div id="rm_container" class="rm_container">
+					<ul>
+						<li data-images="rm_container_1" data-rotation="-15"><img src= "{{MEDIA_URL}}/gallery/home_images/{{files.0}}" /></li>
+						<li data-images="rm_container_2" data-rotation="-5"><img src="{{MEDIA_URL}}/gallery/home_images/{{files.1}}"/></li>
+						<li data-images="rm_container_3" data-rotation="5"><img src="{{MEDIA_URL}}/gallery/home_images/{{files.2}}"/></li>
+						<li data-images="rm_container_4" data-rotation="15"><img src="{{MEDIA_URL}}/gallery/home_images/{{files.3}}"/></li>
+					</ul>
+					<h2 style="opacity:0.5">Insight - Litsoc
+					<div style="display:none;">
+						<div id="rm_container_1">
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.0}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.4}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.5}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.6}}"/>
+						</div>
+						<div id="rm_container_2">
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.1}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.7}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.8}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.9}}"/>
+						</div>
+						<div id="rm_container_3">
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.2}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.10}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.11}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.12}}"/>
+						</div>
+						<div id="rm_container_4">
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.3}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.13}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.14}}"/>
+							<img src="{{MEDIA_URL}}/gallery/home_images/{{files.15}}"/>
+						</div>
+					</div>
+				</div>
+				<div class="rm_nav">
+					<a id="rm_next" href="#" class="rm_next"></a>
+					<a id="rm_prev" href="#" class="rm_prev"></a>
+				</div>
+				<div class="rm_controls">
+					<a id="rm_play" href="#" class="rm_play">Play</a>
+					<a id="rm_pause" href="#" class="rm_pause">Pause</a>
+				</div>
+
+				
+{% endblock %}

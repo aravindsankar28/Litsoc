@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+<title>Edit Vertical</title> 
+<h2><center>Edit Vertical</center></h2>
+<form action="" method='POST'>
+        {% csrf_token %}
+        <table>
+        <tr><td>Name of Vertical : </td><td><textarea name="name" rows="1" cols="30">{{v.name}}</textarea></td></tr>
+        <tr><td>Description : </td><td><textarea rows="10" name="description" cols="80" >{{v.description}}</textarea></td></tr>
+        
+        </table>
+        </br>
+        <center><input type ='submit' value='Submit'/></center>
+    </form>
+{% endblock %}    

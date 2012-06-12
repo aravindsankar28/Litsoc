@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+<h2><center>{{e.name}}</center></h2>
+<font size="3">
+{% if display == 1 %}
+<center><pre><a href="/editevent/{{e.event_id}}/">Edit event</a>         <a href="/results/{{e.event_id}}/">Result</a></center> <br>
+{% endif %}
+<br>
+<b><u>Description</u></b> : <br><pre>          {{e.description}}</pre>
+</br>
+<b><u>Venue</u></b> : {{e.venue}}
+<br><br>
+<b><u>Date</u></b> : {{e.date}}<br></br>
+{% if resu == 1 %}
+<b><u>Result</u></b> : </br></br>
+{% for result in results %}
+<pre>     Position {{result.position}}  -  {{result.name}}  -  {{result.hostel}}  -  {{result.pts}}</pre>
+{% endfor %}
+{% endif %} 
+<pre>        </pre><b><u>Coords</u></b></br></br>
+{% for coord in coords %}
+<span style="padding-left:20px">{{coord.first_name}}</span></br>
+<span style="padding-left:20px">{{coord.get_profile.rollno}}</span></br>
+<span style="padding-left:20px">{{coord.email}}</b></span></br>
+</br>
+{% endfor %}
+</font>
+{% endblock %}
+
+
+
+

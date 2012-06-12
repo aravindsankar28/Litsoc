@@ -1,0 +1,16 @@
+{% block content %}
+<title>Edit Vertical</title> 
+<h2><center>Edit Vertical</center></h2>
+<form action="" method='POST'>
+        {% csrf_token %}
+        <table>
+        <tr><td>Name of Vertical : </td><td><textarea name="name" rows="1" cols="20">{{v.name}}</textarea></td></tr>
+        <tr><td>Description : </td><td><textarea rows="10" name="description" columns="2000" >{{v.description}}</textarea></td></tr>
+        {% for event in r %}
+        <tr><td>Events associated:</td></tr>
+        <tr><td></td><td><a href="/events/{{event.event_id}}" >{{event.name}}</a></td></tr>
+        {% endfor %}
+        </table>
+        <input type ='submit' value='Submit'/>
+    </form>
+{% endblock %}    

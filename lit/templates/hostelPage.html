@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+{% block content %}
+</script>
+<center>
+<h3>{{foobar}}</h3>
+<table bgcolor="#aaaeaa" border="1" width="80%" cellspacing="1" cellpadding="2">
+<tr>
+<th>Event Name</th>
+<th>Venue</th>
+<th style="padding-right:90px;">Date</th>
+</tr>
+{% for event in events %}
+<tr>
+<td bgcolor="#FFF8C6"><a href="/events/{{event.event_id}}" >{{event.name}}</a></td>
+<td bgcolor="#FFF8C6">{{event.venue}}</td>
+<td bgcolor="#FFF8C6" width="40%" style="">{{event.date}}</td>
+{% endfor %}
+</table>
+<table bgcolor="#aaaeaa" border="1" width="109px" cellspacing="1" cellpadding="2" style="position:absolute; left:900px;top:70px;">
+<th>Points</th>
+{% for p in pts %}
+<tr><td bgcolor="#FFF8C6">{{p}}</td></tr>
+{% endfor %}
+</table>
+</center>
+<br>
+<b><span style="padding-left:40px">Lit Sec </span></b></br>
+<span style="padding-left:20px">Name  :  {{litsec.first_name}}</span></br>
+<span style="padding-left:20px">Roll no  :  {{litsec.get_profile.rollno}}</span></br>
+<span style="padding-left:20px">Email ID  :  {{litsec.email}}</b></span></br>
+<b>Comments : {{hostel.litsec_comments}}</b><br>
+</br>
+<b><span style="padding-left:40px">Soc Sec </span></b></br>
+<span style="padding-left:20px">Name  :  {{socsec.first_name}}</span></br>
+<span style="padding-left:20px">Roll no  :  {{socsec.get_profile.rollno}}</span></br>
+<span style="padding-left:20px">Email ID  :  {{socsec.email}}</b></span></br>
+<b>Comments : {{hostel.socsec_comments}}</b><br>
+
+{% for e in events %}
+<b><u>{{e.name}}</u></b>
+{% for result in results %}
+{% if e.event_id == result.event_id %}
+<pre>    Position {{result.position}}  -  {{result.name}}  -   {{result.pts}} points</pre>
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+{% endblock %}

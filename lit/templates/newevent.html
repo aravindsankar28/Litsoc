@@ -1,0 +1,29 @@
+<head>
+<script type="text/javascript" >
+function message()
+{
+document.getElementById("mess").style.display ='block';
+}
+</script>
+</head>
+{% extends "index.html" %}
+{% block content %}
+    <h2><center>Edit Event</center></h2>
+    <table >       
+     <form action="" method='POST'>
+        {% csrf_token %}
+        <tr><td>Name of Event : </td><td><textarea rows="1" name="name" cols="80" >{{e.name}}</textarea></td></tr>
+        {% if genvar == 2 %}
+        <tr><td>Date : </td><td><textarea rows="1" name="date" cols="80" onclick="message()" >{{e.date}} </textarea></td><td><b><span id = "mess" style = "color:red; display:none;">Enter date in YYYY-MM-DD format</span></b></td></tr>
+        {% else %}
+        <tr><td>Date : </td><td><textarea rows="1" name="date" cols="80" onclick="message()" ></textarea></td><td><b><span id = "mess" style = "color:red; display:none;">Enter date in YYYY-MM-DD format</span></b></td></tr>
+        {% endif %}
+        <tr><td>Venue : </td><td><textarea rows="1" name="venue" cols="80" >{{e.venue}}</textarea></td></tr>
+        <tr><td>Link to T5E Article : </td><td><textarea rows="1" name="t5e" cols="80" >{{e.t5e}}</textarea></td></tr>
+        <tr><td>Description : </td><td><textarea rows="10" name="description" cols="80" >{{e.description}}</textarea></td></tr>
+        
+    </table>
+        <input type ='submit' value='Submit'/>
+
+    </form>
+    {% endblock %}

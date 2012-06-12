@@ -1,0 +1,16 @@
+<html>
+<body>
+    <table>       
+     <form action="" method='POST'>
+        {% csrf_token %}
+        <tr><td>Name of Event : </td><td><textarea name="name" rows="1" cols="20">{{t.name}}</textarea></td><td>
+        <tr><td>Venue : </td><td><textarea name="venue" rows="1" cols="20">{{t.venue}}</textarea></td><td>
+        <tr><td>Date : </td><td><textarea name="date" rows="1" cols="30" onclick="message()">{{t.date}}</textarea></td><td><b><span id = "mess" style = "color:red; display:none;">Enter date in YYYY-MM-DD format</span></b></td><td>
+        <tr><td>Link to T5E Article : </td><td><textarea name="t5e" rows="1" cols="50">{{t.t5e}}</textarea></td><td>
+        <tr><td>Description : </td><td><textarea rows="10" name="description" columns="2000" >{{t.description}}</textarea></td></tr>
+    </table>
+        <input type ='submit' value='Approve'/>
+        <a href="" ><button>Reject</button></a>
+    </form>
+</body>
+</html>

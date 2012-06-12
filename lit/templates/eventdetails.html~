@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Event's Page</title>
+</head>
+<body vlink="blue">
+{% if flag == 1 %}
+<a href="/corepage/" style="float:left">Back to Login Page</a>
+{% else %}
+<a href="/homepage/" style="float:left">Back to Home Page</a>
+{% endif %}
+</br>
+<center>
+<h3>Litsoc Events</h3>
+<br/>
+<table bgcolor="#aaaaaa" border="0" width="98%" cellspacing="1" cellpadding="2">
+<tr><td>Event Name</td><td>Venue</td><td>Date</td><td>1st</td><td>2nd</td><td>3rd</td><td>4th</td><td>5th</td><td>6th</td><td>7th</td><td>8th</td><tr>
+{% for event in events %}
+<tr>
+<td width="50%" bgcolor="#eeeeee" >
+<font face="arial" size="3"><a href="/events/{{event.event_id}}/">{{event.name}}</a></td>
+<td width="40%" bgcolor="#eeeeee">{{event.venue}}</td>
+<td width="30%" bgcolor="#eeeeee" align="center">{{event.date}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt1}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt2}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt3}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt4}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt5}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt6}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt7}}</td>
+<td width="20%" bgcolor="#eeeeee">{{event.pt8}}</td>
+</font>
+</tr>
+{% endfor %}
+</table>
+</center>
+</html>
+

@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+<title>Core User Page</title>
+{% block content %}
+<h2><center>Welcome {{user.username}}</center></h2>
+<a href="/upload/gen"style="color:blue" >Upload a file to downloads</a><br>
+<a href="/upload/img"style="color:blue" >Upload an image to gallery</a>
+<a href="/changepw/" style = "float:right;color:blue "><b>Change Password</b></a><br>
+<a href="/logout/" style = "float:right;color:blue "><b>Logout</b></a><br>
+{% if user.get_profile.usertype == "supercoord" %}
+<div style = "background-color:#FFFFFF; position:absolute; width:500px; height:300px; top:150px;left:350px; border-radius:5px; overflow:auto">
+<br>
+<h2><center>Vertical</center></h2>
+<font face="arial" size="3" color="blue"><a href="/verticals/{{vertical.vert_id}}" style = "font-size:20;">{{verticalname}}</a></font>
+</div>
+{% endif %}
+
+{% if user.get_profile.usertype == "coord" %}
+<div style = "background-color:#FFFFFF; position:absolute; width:500px; height:450px; top:150px; left:520px; border-radius:5px; overflow:auto">
+<br>
+<h2><center>Event</center></h2>
+<font face="arial" size="3" color="blue"><a href="/events/{{event.event_id}}" style = "font-size:20;">{{event.name}}</a></font>
+</div>
+{% endif %}
+
+{% if user.get_profile.usertype == "core" %}
+<a href="/coordregister/supercoord" style = "float:right;color:blue "><b>Create new Super Coord User</b></a><br>
+{% endif %}
+{% if user.get_profile.usertype == "supercoord" %}
+<a href="/coordregister/coord" style = "float:right;color:blue "><b>Create new  Coord User</b></a>      
+{% endif %}
+{% endblock %}
+

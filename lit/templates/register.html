@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+{% block content %}
+<head>
+<style>
+.errorMsg
+{
+		color:red;
+		display:none;
+		font-weight:bold;
+}
+</style>
+<script>
+function validate()
+{
+var error = false;
+var first_name = document.getElementById("first_name").value;
+var user = document.getElementById("user").value;
+var pass = document.getElementById("pass").value;
+var confirmpass = document.getElementById("confirmpass").value;
+var email = document.getElementById("email").value;
+var rollno = document.getElementById("rollno").value;
+if(first_name == "" || user=="" || pass==""|| confirmpass == "" || email =="" || rollno == "")
+{
+document.getElementById("Error").style.display = 'block'; error  = false; } 
+else if(pass != confirmpass)
+{ 
+document.getElementById("confirm_password").style.display = 'block'; 
+error = false;  
+document.getElementById("Error").style.display = 'none'; 
+}
+else if(pass.length <6)
+{ 
+document.getElementById("length").style.display = 'block'; 
+error = false; 
+document.getElementById("Error").style.display = 'none';
+document.getElementById("confirm_password").style.display ='none'  
+}
+else error = true;
+return error;
+}
+</script>
+</head>
+<h2><center><b>New {{foobar}}</b></center></h2><br>
+<form action = "" method="POST" onsubmit="return validate()">
+{% csrf_token %}
+<center>
+<table>
+<tr><td>First Name :</td> <td> <input type="text" id = "first_name" name = "first_name" /></td></tr>
+<tr><td>Last Name :</td> <td> <input type="text" name = "last_name" /></td></tr>
+<tr><td>Username :</td><td><input id = "user" type="text" name = "user_name" /></td><td>{% if flop == 1 %}<font color = 'red'><b> Entered User name not available</b></font>{% endif %}</td></tr>
+<tr><td>E-mail id :</td><td><input type="text" id = "email" name = "email" ></td></tr>
+<tr><td>Roll Number :</td><td><input type="text" id = "rollno" name = "rollno" ></td></tr>
+{% if foobar == "supercoord" %}
+<tr><td>Vertical :</td><td><select name="sel">
+{% for vertical in verticals %}
+<option name={{vertical.name}}>{{vertical.name}}</option>
+{% endfor %}
+{% endif %}
+{% if foobar == "coord" %}
+<tr><td>Event :</td><td><select name="sel">
+{% for event in events %}
+<option name={{event.name}}>{{event.name}}</option>
+{% endfor %}
+{% endif %}
+
+<tr><td>Password :</td><td><input type="password" id ="pass" name = "password" ></td></tr>
+<tr><td>Confirm Password :</td><td><input type="password"id = "confirmpass" name = "confirmpassword" ></td></tr>
+<tr><td></td><td><input type = "submit" value = "Submit" ></td></tr>	
+</table>
+	
+<span id="Error" class="errorMsg">Enter all data </span>
+<span id="confirm_password" class="errorMsg">Passwords not matching </span>    
+<b><span id = "length" style = "color:red; display:none; ">Password length cannot be less than 6 characters</span></b>
+</center>
+</form> 
+{% endblock %}

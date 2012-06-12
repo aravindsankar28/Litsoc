@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+<title>Verticals Page</title>
+{% block title %}
+{{v.name}}
+{% endblock %}
+{% block content %} 
+<b><u>Vertical:</u></b>{{v.name}}  <br><pre>         {% if flag == 1 %} <a href="/editvertical/{{v.vert_id}}" >Edit vertical details</a>{% endif %}</pre>
+<b><u>Description</u></b> : <br><pre>          {{v.description}}</pre>
+<b><u>Events assosciated</u></b> :
+<pre><ul>
+{% for event in r %}
+<li><a href="/events/{{event.event_id}}">{{event.name}}</a>      
+{% if flag == 1 %}
+<pre><a href="/editevent/{{event.event_id}}">Edit event</a></pre>
+{% endif %}
+{% endfor %}</li>
+</ul></pre>
+{% if approve == 1 %}
+{% for events in t %}
+<a href="/approve/{{events.event_id}}" >View changes by coord for event {{events.name}}</a>
+{% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+<html>
+<title>Verticals View Page</title>
+<h1>{{u.vert_id}}</h1>
+<h2>{{foobar}}</h2>
+<body style = "background-color:#E6E680">
+<table summary="" >
+<tr><td>Vertical:</td><td>{{v.name}}</td></tr>
+<tr><td>Description:</td><td>{{v.description}}</td></tr>
+<tr><td>Events assosciated :</td></table>
+<ul>
+{% for event in r %}
+<li><a href="/events/{{event.event_id}}">{{event.name}}</a>    
+{% endfor %}</li>
+</ul>
+</table>
+</body>
+</html> 

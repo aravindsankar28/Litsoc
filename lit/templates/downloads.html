@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+<h2><center>Downloads</center></h2>
+<center><b><font color="#000099"; size="6px"> Files for download:</font> </b><br></center>
+{% if n == 0 %}
+<br>No files availbale for download now
+{% endif %}
+{% for f in files %}
+<font size="5px">{{desc}} <a href="{{MEDIA_URL}}/gen/{{f}}">{{f}}</a></font><br>
+{% endfor %}
+{% endblock %}
+

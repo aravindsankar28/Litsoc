@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block content %}
+<h2><center>{{e.name}}</center></h2>
+{% if flag == 2 %}
+<a href="/corepage/" style="float:left">Back to Login Page</a>
+{% else %}
+<a href="/homepage/" style="float:left">Back to Home Page</a>
+{% endif %}
+<body>
+{% if display == 1 %}
+<a href="/editevent/{{e.event_id}}/" >Edit event</a> <br>
+{% endif %}
+<br>
+<b><u>Description</u></b> : <br><pre>          {{e.description}}</pre>
+</br>
+<b><u>Venue</u></b> : {{e.venue}}
+<br><br>
+<b><u>Date</u></b> : {{e.date}}<br>
+{% endblock %}
+
+
+
+
