@@ -134,11 +134,7 @@ background-repeat: repeat-x;
 			<li><a href="#" id="current">{{user.username}}</a>
 				<ul>
 					<li><a href="/logout/">Logout</a></li>
-					{% if user.get_profile.usertype == "litsec" or user.get_profile.usertype == "socsec" %}
-					<li><a href="/changepw2/">Edit Details</a></li>
-					{% else %}
 					<li><a href="/changepw/">Edit Details</a></li>
-					{% endif %}
 			   </ul>
 			</li>
 			{% endif %}
