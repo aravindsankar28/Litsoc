@@ -30,11 +30,17 @@ def login(request):
 	verticals=verticalDetails.objects.all()
 	flop = 1
 	events = EventDetails.objects.all()
+	if request.user.is_authenticated():
+		if request.user.get_profile().usertype == "litsec" or request.user.get_profile().usertype == "socsec":
+			return HttpResponseRedirect('/litsoc/')
+		return HttpResponseRedirect('/corepage/')
 	if request.method == "POST":
 		username = request.POST['username']
 		password = request.POST['password']
 		user = auth.authenticate(username=username,password=password)
-		u=User.objects.get(username=username)
+		if user is None:
+			flop = 0 
+			return render_to_response('LoginPage.html',locals(),context_instance=RequestContext(request))  			
 		if user.get_profile().usertype == "litsec" or user.get_profile().usertype == "socsec":
 		    auth.login(request,user)
 		    return HttpResponseRedirect("/litsoc/") 

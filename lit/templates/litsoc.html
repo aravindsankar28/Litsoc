@@ -1,8 +1,5 @@
-<html>
-<body>
-</br>
-<a href="/logout/"style="color:blue; float:right" >LOGOUT</a><br>
-<a href="/changepw2/"style="color:blue; float:right" >EDIT DETAILS</a><br>
+{% extends "index.html" %}
+{% block content %}
 {% if flag == 1 %}
 <span style="padding-left:30px"><b><u>Lit Sec</u></b></span></br></br>
 {% endif %}
@@ -17,9 +14,10 @@
 <form action="" method='POST'>
 {% csrf_token %}
 <table>
-<tr><td><pre>  Comments : </pre></td><td><textarea rows="10" name="comments" cols="80" >{% if flag == 1 %}{{h.litsec_comments}}{% endif %}
+<tr>Comments :<td><textarea rows="10" name="comments" cols="80">{% if flag == 1 %}{{h.litsec_comments}}{% endif %}
 {% if flag == 2 %}{{h.socsec_comments}}{% endif %}</textarea></td></tr>
 </table>  
 </br>  
 <span style="padding-left:400px"><input type ='submit' value='Submit'/></span>
-</form>    
+</form>   
+{% endblock %} 

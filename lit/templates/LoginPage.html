@@ -12,7 +12,7 @@
 <tr><td>Password:</td> <td><input type ='password' name ='password' /></td></tr>
 <tr><td></td><td><input type = 'submit' value = 'Login' /></td></tr>
 </table>
-<span style = "position:absolute; left:500px; top:400px;">{% if flop == 0 %}<font color ='red'><b>User name or password incorrect</b></font>{% endif %}</span> 
+{% if flop == 0 %}<span style = "position:absolute; left:500px; top:300px;"><font color ='red'><b>User name or password incorrect</b></font></span>{% endif %}
 </form>
 </center>
 {% endblock %}

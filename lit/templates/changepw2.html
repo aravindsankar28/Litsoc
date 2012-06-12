@@ -1,5 +1,5 @@
-<html>
-<body>
+{% extends "index.html" %}
+{% block content %}
 <style>
 .errorMsg
 {
@@ -52,4 +52,4 @@ return error;
 <b><span id = "length" style = "color:red; display:none; ">Password length cannot be less than 6 characters</span></b>
 </form>
 </center>
-</body></html>
+{% endblock %}
